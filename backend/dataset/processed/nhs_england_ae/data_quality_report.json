@@ -1,0 +1,14 @@
+{
+  "raw_rows": 21073,
+  "provider_rows": 20794,
+  "eligible_provider_rows": 17991,
+  "negative_count_rows": 0,
+  "duplicate_provider_months": 0,
+  "missing_months": [],
+  "excluded_row_classes": {
+    "provider": 20794,
+    "regional_or_system_total": 180,
+    "national_total": 99
+  },
+  "warnings": []
+}

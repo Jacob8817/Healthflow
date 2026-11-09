@@ -1,0 +1,164 @@
+{
+  "checks": [
+    {
+      "name": "Staff dashboard uses real inventory and hides technical metrics",
+      "details": {
+        "available": 16,
+        "occupied": 90,
+        "reserved": 4,
+        "cleaning": 6,
+        "blocked": 4,
+        "total": 120,
+        "staffed_operational": 116
+      }
+    },
+    {
+      "name": "Bed edits persist across reload and counts update"
+    },
+    {
+      "name": "Emergency aggregate snapshot saved",
+      "details": {
+        "awaiting_bed": 7,
+        "id": 4,
+        "medium_priority": 11,
+        "recorded_by": 1,
+        "updated_at": "2026-11-08T15:42:38.084752",
+        "high_priority": 4,
+        "hospital_id": "DEMO-HOSP-01",
+        "awaiting_assessment": 6,
+        "low_priority": 8,
+        "created_at": "2026-11-08T15:42:38.084736"
+      }
+    },
+    {
+      "name": "Matching-month staff and equipment record saved"
+    },
+    {
+      "name": "Structured shift coverage and equipment stock save from UI"
+    },
+    {
+      "name": "Real forecast rendered without technical diagnostics",
+      "details": {
+        "forecast_run_id": "7a75a616-3659-4c02-a51c-e6e498603639",
+        "hospital": {
+          "identifier": "DEMO-HOSP-01",
+          "name": "City General Hospital"
+        },
+        "feature_month": "2026-07",
+        "target_month": "2026-08",
+        "raw_prediction": 4410.560852603584,
+        "predicted_emergency_admissions": 4411,
+        "forecast_interval": {
+          "lower_80": null,
+          "upper_80": null,
+          "lower_95": null,
+          "upper_95": null,
+          "method": null
+        },
+        "model": {
+          "name": "Random Forest Regressor",
+          "version": "c8d08873d644",
+          "primary_metric": "WAPE",
+          "validation_wape_percent": 4.749,
+          "test_wape_percent": 5.317
+        },
+        "data": {
+          "source": "NHS England Monthly A&E Attendances and Emergency Admissions",
+          "history_start_month": "2025-07",
+          "history_end_month": "2026-07"
+        },
+        "important_factors": [
+          {
+            "feature": "emergency_admissions_lag_1",
+            "importance_mean": 2571.828997986333
+          },
+          {
+            "feature": "provider_historical_median",
+            "importance_mean": 121.40691386869938
+          },
+          {
+            "feature": "provider_historical_mean",
+            "importance_mean": 54.05450015188104
+          },
+          {
+            "feature": "provider_code",
+            "importance_mean": 26.17516073534164
+          },
+          {
+            "feature": "decision_to_admit_waits_over_4_hours",
+            "importance_mean": 16.676459215506856
+          }
+        ],
+        "warnings": [
+          "This hospital identifier was not part of the exported training categories. Complete local shadow validation before operational use."
+        ],
+        "disclaimer": "Aggregate operational forecasting only; not for patient-level or clinical decisions."
+      }
+    },
+    {
+      "name": "Forecast, bed inventory, staffing, simulation and optimisation connected",
+      "details": {
+        "id": "c34a77e5-720b-47de-a09c-de18ea8ff2bd",
+        "hospital_identifier": "DEMO-HOSP-01",
+        "input_data": {
+          "forecast_id": "7a75a616-3659-4c02-a51c-e6e498603639",
+          "average_length_of_stay_hours": 20,
+          "target_occupancy": 0.85,
+          "staff_hours_per_admission": 4,
+          "max_extra_beds": 100,
+          "max_extra_staff_hours": 10000,
+          "target_month": "2026-08",
+          "demand": 4411,
+          "staffed_beds": 116,
+          "resource_id": 1,
+          "resource_updated_at": "2026-11-08T15:38:03.772666",
+          "available_staff_hours": 15000,
+          "inventory_updated_at": "2026-11-08T15:42:37.767348",
+          "horizon_days": 31,
+          "cost_per_bed_day": 500,
+          "cost_per_staff_hour": 45,
+          "scope": "Aggregate scenario; current inventory, not historical occupancy or live patient allocation."
+        },
+        "recommendation": {
+          "status": "pending_approval",
+          "recommendation": {
+            "extra_beds": 24,
+            "extra_staff_hours": 2644,
+            "estimated_incremental_cost": 490980
+          },
+          "guardrail": "This plan is advisory and cannot be applied without human approval.",
+          "simulation": {
+            "mean_wait_hours": 8.37612169891005,
+            "p95_wait_hours": 18.40377344518489,
+            "mean_occupancy": 0.966019412018988,
+            "waiting_at_end": 93.85,
+            "patients_started": 4299.55,
+            "replications": 20,
+            "seed": 42,
+            "monthly_to_hourly_rate": 5.928763440860215,
+            "capacity_risk": "high"
+          },
+          "summary": {
+            "required_beds_at_target": 140,
+            "bed_gap": 24,
+            "staff_hour_gap": 2644,
+            "offered_load_percent": 102.2
+          }
+        },
+        "status": "pending_approval",
+        "created_at": "2026-11-08T15:42:40.291323+00:00",
+        "updated_at": "2026-11-08T15:42:40.291328+00:00"
+      }
+    },
+    {
+      "name": "Owned action creation and status updates persist"
+    },
+    {
+      "name": "Admin-only diagnostic view displays corrected benchmark values"
+    },
+    {
+      "name": "Mobile layout and sidebar navigation work without page overflow"
+    }
+  ],
+  "errors": []
+}

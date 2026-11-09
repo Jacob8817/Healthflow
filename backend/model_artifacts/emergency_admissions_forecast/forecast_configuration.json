@@ -1,0 +1,15 @@
+{
+  "horizon_months": 1,
+  "optional_horizons": [
+    2,
+    3
+  ],
+  "training_target_end": "2023-12",
+  "validation_target_period": [
+    "2024-01",
+    "2024-12"
+  ],
+  "test_target_start": "2025-01",
+  "interval_method": "empirical validation residual quantiles",
+  "covid_sensitivity_exclusion": false
+}

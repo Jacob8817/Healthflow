@@ -1,0 +1,1 @@
+"""Emergency-admissions forecasting services."""

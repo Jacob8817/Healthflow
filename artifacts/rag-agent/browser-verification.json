@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "conversationRestored": true,
+  "semanticCitations": true,
+  "mobileWidth": 390,
+  "errors": [],
+  "answer": {
+    "conversation_id": "853afe50-9cf8-4364-9b6b-28b25d7736b9",
+    "hospital_id": "DEMO-HOSP-01",
+    "status": "ok",
+    "answer": "**Which beds are counted in operational capacity**\n\nThe HealthFlow system reference explains that the monthly operational‑capacity count is based on *staffed, non‑blocked* beds. All beds that are staffed (i.e., have nursing/clinical staff assigned) and are not in a “blocked” state are included, regardless of their current use. Thus the capacity total comprises:\n\n* Occupied beds  \n* Reserved beds  \n* Cleaning beds  \n\nbut **excludes** beds that are marked “blocked” (or otherwise unstaffed). An “available” bed must also be staffed to be counted; a bed that is free but unstaffed does not contribute to the operational‑capacity figure. These rules are stated in the policy passage **[P1-0]**.\n\n**Recorded bed numbers for City General Hospital**\n\nThe latest staff‑maintained snapshot for the selected hospital (retrieved on 2026‑11‑09) provides the following figures [H1]:\n\n* **Available beds** – 16  \n* **Staffed operational beds** – 115  \n\nThe snapshot also shows the full breakdown (total 120, occupied 89, reserved 4, cleaning 6, blocked 5), confirming that the staffed‑operational count (115) equals total beds minus the blocked ones (120 – 5 = 115), consistent with the policy definition.  \n\nSo, according to HealthFlow’s own reference, operational capacity is measured by the **staffed, non‑blocked** bed total (115), while the number of beds currently free and ready for use is the **available** count (16).",
+    "citations": [
+      {
+        "id": "H1",
+        "kind": "hospital",
+        "title": "City General Hospital: recorded hospital state",
+        "excerpt": "Beds, wards, emergency counts, saved forecasts and monthly resources.",
+        "updated_at": "2026-11-09T09:07:24.546434+00:00",
+        "source": "/operations/DEMO-HOSP-01/board"
+      },
+      {
+        "id": "P1-0",
+        "document_id": 1,
+        "title": "HealthFlow system reference (not clinical policy)",
+        "page": null,
+        "source": "HealthFlow repository, 9 November 2026",
+        "excerpt": "# HealthFlow assistant reference — implementation, not clinical policy Source: HealthFlow repository, 9 November 2026. This is a software workflow reference. It is not a hospital-approved clinical policy and does not establish escalation thresholds or treatment rules. ## Hospital data and beds HealthFlow is for hospital staff. Hospital records are entered by staff; no live EHR, ADT or roster connection exists. Always distinguish a record's timestamp from the time it was retrieved. An absent resource, queue or shift record is unknown, not zero. The City General Hospital development workspace contains synthetic sample records. Beds are grouped schematically by floor and ward. Statuses are available, occupied, reserved, cleaning and blocked. An immediately available bed must be staffed. Monthly operational capacity counts staffed non-blocked beds, including occupied, reserved and cleaning beds. This capacity count is not the same as the number of beds immediately free. New beds are blocked and unstaffed until staff confirm their state. The assistant cannot change bed states. ## Emergency and priorities The emergency snapshot records counts awaiting assessment, awaiting a bed and staff-assessed high/medium/low priority counts. No",
+        "score": 0.738,
+        "updated_at": "2026-11-09T09:03:11.517353",
+        "kind": "policy"
+      },
+      {
+        "id": "P1-3",
+        "document_id": 1,
+        "title": "HealthFlow system reference (not clinical policy)",
+        "page": null,
+        "source": "HealthFlow repository, 9 November 2026",
+        "excerpt": "four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions × average stay hours / target occupancy. Available bed-hours = staffed operational beds × target-month days × 24. Required staff-hours = admissions × staff-hours per admission. Extra beds are available for the entire target month. Calendar months have their actual number of days. The illustrative costs are £500 per extra bed-day and £45 per extra staff-hour, not verified procurement prices. The simulation uses twenty seeded replications, starts empty, and simulates the forecast cohort. Occupancy is time-weighted. Wait statistics cover admissions that obtained a bed; end-of-month waiting counts are separate. Existing inpatients, elective activity, detailed ward routing, equipment and skill constraints are not modelled. A capacity preview uses present recorded inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context",
+        "score": 0.689,
+        "updated_at": "2026-11-09T09:03:11.517353",
+        "kind": "policy"
+      },
+      {
+        "id": "P1-4",
+        "document_id": 1,
+        "title": "HealthFlow system reference (not clinical policy)",
+        "page": null,
+        "source": "HealthFlow repository, 9 November 2026",
+        "excerpt": "inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context and are not optimiser constraints. Staff must mark unusable beds appropriately. Tasks are staff-owned follow-up records. Recommendations await administrator approval; approval records a decision but does not execute bed/staff allocation. The assistant has no approval or record-editing tools. ## Assistant and document evidence The assistant combines Groq generation, locally computed BGE-small embeddings, stored policy passages, semantic/keyword retrieval, and hospital-scoped backend tools. Only retrieved excerpts and selected record summaries are sent to Groq. Documents are shared across this installation. An uploaded document is not automatically an approved hospital policy. Answers should cite the actual retrieved passage IDs and hospital/tool evidence. When evidence is absent, say what is missing. Free-tier quotas may delay or prevent generation; no successful action should be claimed after a failed tool.",
+        "score": 0.66,
+        "updated_at": "2026-11-09T09:03:11.517353",
+        "kind": "policy"
+      },
+      {
+        "id": "P1-2",
+        "document_id": 1,
+        "title": "HealthFlow system reference (not clinical policy)",
+        "page": null,
+        "source": "HealthFlow repository, 9 November 2026",
+        "excerpt": "aggregate emergency admissions for the month after the last input month. Historical inputs produce a retrospective forecast, not a forecast automatically anchored to today's date. The assistant's forecast tool calls this trained pipeline with saved inputs. It never creates synthetic monthly values to fill gaps. Tool results are unsaved previews and carry their source input forecast ID. The normal Demand forecast screen saves results for later planning. No retraining occurs. Future ward-level, hourly, discharge or length-of-stay predictions are not implemented. ## Capacity scenarios and assumptions Capacity planning uses a saved hospital forecast, current staffed/non-blocked bed inventory and monthly available staff hours for the forecast target month. The normal screen saves a plan for administrator review. The assistant's capacity tool returns a preview without saving a plan or allocating resources. Default assumptions: average stay 20 hours, target occupancy 85%, staff requirement four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions × average stay hours / target occupancy. Available bed-hours",
+        "score": 0.655,
+        "updated_at": "2026-11-09T09:03:11.517353",
+        "kind": "policy"
+      }
+    ],
+    "tools": [],
+    "warnings": [],
+    "as_of_date": "2026-11-09"
+  }
+}

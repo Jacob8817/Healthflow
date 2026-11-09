@@ -1,0 +1,20 @@
+[
+  {
+    "finding": "Future months accepted as completed history",
+    "reproduced": true,
+    "last_month": "2091-01"
+  },
+  {
+    "finding": "Returned UUID conversation ID rejected by follow-up request schema",
+    "reproduced": true
+  },
+  {
+    "finding": "Equal policy relevance scores cause sort TypeError",
+    "reproduced": true,
+    "error": "'<' not supported between instances of 'PolicyDocument' and 'PolicyDocument'"
+  },
+  {
+    "finding": "Occupied beds can exceed staffed beds without validation",
+    "reproduced": true
+  }
+]

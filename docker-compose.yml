@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: healthflow
+      POSTGRES_USER: healthflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-healthflow-local}
+    volumes: [healthflow-db:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U healthflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://healthflow:${POSTGRES_PASSWORD:-healthflow-local}@postgres:5432/healthflow
+      APP_ENV: ${APP_ENV:-development}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-local-development-only-change-this-secret-key}
+      SEED_DEMO_ADMIN: ${SEED_DEMO_ADMIN:-true}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL: ${GROQ_MODEL:-openai/gpt-oss-120b}
+    ports: ["8000:8000"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    extra_hosts: ["host.docker.internal:host-gateway"]
+  frontend:
+    build:
+      context: ./frontend/healthflow
+    ports: ["3000:80"]
+    depends_on: [backend]
+volumes:
+  healthflow-db:

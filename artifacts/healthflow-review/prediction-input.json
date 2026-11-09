@@ -1,0 +1,97 @@
+{
+  "hospital_name": "City General Hospital (Test Data)",
+  "hospital_identifier": "DEMO-HOSP-01",
+  "history": [
+    {
+      "month": "2025-07",
+      "emergency_admissions": 4180,
+      "total_ae_attendances": 11240,
+      "attendances_under_4_hours": 8260,
+      "decision_to_admit_waits_over_4_hours": 620
+    },
+    {
+      "month": "2025-08",
+      "emergency_admissions": 4055,
+      "total_ae_attendances": 10980,
+      "attendances_under_4_hours": 8180,
+      "decision_to_admit_waits_over_4_hours": 585
+    },
+    {
+      "month": "2025-09",
+      "emergency_admissions": 4215,
+      "total_ae_attendances": 11460,
+      "attendances_under_4_hours": 8325,
+      "decision_to_admit_waits_over_4_hours": 640
+    },
+    {
+      "month": "2025-10",
+      "emergency_admissions": 4490,
+      "total_ae_attendances": 12120,
+      "attendances_under_4_hours": 8540,
+      "decision_to_admit_waits_over_4_hours": 710
+    },
+    {
+      "month": "2025-11",
+      "emergency_admissions": 4785,
+      "total_ae_attendances": 12880,
+      "attendances_under_4_hours": 8730,
+      "decision_to_admit_waits_over_4_hours": 825
+    },
+    {
+      "month": "2025-12",
+      "emergency_admissions": 5120,
+      "total_ae_attendances": 13640,
+      "attendances_under_4_hours": 8895,
+      "decision_to_admit_waits_over_4_hours": 970
+    },
+    {
+      "month": "2026-01",
+      "emergency_admissions": 5260,
+      "total_ae_attendances": 13920,
+      "attendances_under_4_hours": 9010,
+      "decision_to_admit_waits_over_4_hours": 1015
+    },
+    {
+      "month": "2026-02",
+      "emergency_admissions": 4985,
+      "total_ae_attendances": 13250,
+      "attendances_under_4_hours": 8750,
+      "decision_to_admit_waits_over_4_hours": 920
+    },
+    {
+      "month": "2026-03",
+      "emergency_admissions": 4860,
+      "total_ae_attendances": 12940,
+      "attendances_under_4_hours": 8620,
+      "decision_to_admit_waits_over_4_hours": 870
+    },
+    {
+      "month": "2026-04",
+      "emergency_admissions": 4525,
+      "total_ae_attendances": 12080,
+      "attendances_under_4_hours": 8330,
+      "decision_to_admit_waits_over_4_hours": 745
+    },
+    {
+      "month": "2026-05",
+      "emergency_admissions": 4380,
+      "total_ae_attendances": 11720,
+      "attendances_under_4_hours": 8215,
+      "decision_to_admit_waits_over_4_hours": 690
+    },
+    {
+      "month": "2026-06",
+      "emergency_admissions": 4260,
+      "total_ae_attendances": 11380,
+      "attendances_under_4_hours": 8100,
+      "decision_to_admit_waits_over_4_hours": 655
+    },
+    {
+      "month": "2026-07",
+      "emergency_admissions": 4345,
+      "total_ae_attendances": 11590,
+      "attendances_under_4_hours": 8190,
+      "decision_to_admit_waits_over_4_hours": 675
+    }
+  ]
+}

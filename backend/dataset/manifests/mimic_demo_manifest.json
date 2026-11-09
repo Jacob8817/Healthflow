@@ -1,0 +1,65 @@
+{
+  "dataset_mode": "demo",
+  "created_at_utc": "2026-07-26T06:58:01.278686+00:00",
+  "datasets": [
+    {
+      "name": "MIMIC-IV-ED",
+      "version": "2.2",
+      "files": [
+        {
+          "relative_path": "backend/dataset/raw/demo/mimic-iv-ed-demo-2.2/ed/edstays.csv.gz",
+          "sha256": "fc185cb111a70e9dfd8457c6e1da4f9366dee729e072282995dcd7045a5a3c52",
+          "size_bytes": 6258,
+          "columns": [
+            "subject_id",
+            "hadm_id",
+            "stay_id",
+            "intime",
+            "outtime",
+            "gender",
+            "race",
+            "arrival_transport",
+            "disposition"
+          ]
+        },
+        {
+          "relative_path": "backend/dataset/raw/demo/mimic-iv-ed-demo-2.2/ed/triage.csv.gz",
+          "sha256": "086dadcb49adc5f24bdda0e342ec9cf0fbcb2e9595516c5c101d408434e1e09b",
+          "size_bytes": 5489,
+          "columns": [
+            "subject_id",
+            "stay_id",
+            "temperature",
+            "heartrate",
+            "resprate",
+            "o2sat",
+            "sbp",
+            "dbp",
+            "pain",
+            "acuity",
+            "chiefcomplaint"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MIMIC-IV",
+      "version": "2.2",
+      "files": [
+        {
+          "relative_path": "backend/dataset/raw/demo/mimic-iv-demo-2.2/hosp/patients.csv.gz",
+          "sha256": "59dcc6cd8450ddf03ad32cc7d76e41caa4c9633541715987f590c74835cf6fae",
+          "size_bytes": 1083,
+          "columns": [
+            "subject_id",
+            "gender",
+            "anchor_age",
+            "anchor_year",
+            "anchor_year_group",
+            "dod"
+          ]
+        }
+      ]
+    }
+  ]
+}

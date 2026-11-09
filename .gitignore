@@ -1,0 +1,36 @@
+# Dependencies, environments and build outputs
+.venv/
+venv/
+node_modules/
+dist/
+build/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+catboost_info/
+*.log
+*.tsbuildinfo
+
+# Real secrets are local overrides; tracked .env files contain placeholders.
+.env.*
+!.env.example
+!.env.production.example
+
+# Local operational state and downloaded embedding runtime
+backend/healthflow.db
+backend/healthflow.db-*
+backend/.rag_cache/
+backend/uploads/
+
+# Machine-specific backups and temporary verification artifacts
+artifacts/staff-portal-implementation/before/
+artifacts/notebook-diagnostics/
+artifacts/**/browser-tools/
+.agents/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

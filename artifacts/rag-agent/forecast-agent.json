@@ -1,0 +1,93 @@
+{
+  "conversation_id": "95ea4a21-748a-465d-ae46-af5a7e338ca3",
+  "hospital_id": "DEMO-HOSP-01",
+  "status": "ok",
+  "answer": "The trained demand\u2011forecast model returns:\n\n- **Target month:**\u202f2026\u201108  \n- **Predicted emergency admissions:**\u202f4,411  \n- **Historical target:**\u202fYes \u2013 the forecast is retrospective because the target month (August\u202f2026) is in the past relative to the current as\u2011of date (2026\u201111\u201109)\u202f\u2014\u202fthe record flags `historical_target: true`\u3010F1\u3011.",
+  "citations": [
+    {
+      "id": "H1",
+      "kind": "hospital",
+      "title": "City General Hospital: recorded hospital state",
+      "excerpt": "Beds, wards, emergency counts, saved forecasts and monthly resources.",
+      "updated_at": "2026-11-09T09:08:25.464924+00:00",
+      "source": "/operations/DEMO-HOSP-01/board"
+    },
+    {
+      "id": "P1-2",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "aggregate emergency admissions for the month after the last input month. Historical inputs produce a retrospective forecast, not a forecast automatically anchored to today's date. The assistant's forecast tool calls this trained pipeline with saved inputs. It never creates synthetic monthly values to fill gaps. Tool results are unsaved previews and carry their source input forecast ID. The normal Demand forecast screen saves results for later planning. No retraining occurs. Future ward-level, hourly, discharge or length-of-stay predictions are not implemented. ## Capacity scenarios and assumptions Capacity planning uses a saved hospital forecast, current staffed/non-blocked bed inventory and monthly available staff hours for the forecast target month. The normal screen saves a plan for administrator review. The assistant's capacity tool returns a preview without saving a plan or allocating resources. Default assumptions: average stay 20 hours, target occupancy 85%, staff requirement four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions \u00d7 average stay hours / target occupancy. Available bed-hours",
+      "score": 0.713,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-1",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "beds immediately free. New beds are blocked and unstaffed until staff confirm their state. The assistant cannot change bed states. ## Emergency and priorities The emergency snapshot records counts awaiting assessment, awaiting a bed and staff-assessed high/medium/low priority counts. No patient-level records or automated triage model are connected. The assistant must not infer patient priority or recommend treatment. Operational task priorities routine/urgent are not patient triage categories. ## Forecast model and input history Demand forecast requires 13\u2013120 consecutive completed months: month, total_ae_attendances, emergency_admissions, attendances_under_4_hours, decision_to_admit_waits_over_4_hours. Current/future input months are rejected. Staff submit these through the Demand forecast screen or its CSV importer. New submissions now save the validated input history with their forecast. Legacy forecast records do not contain their original input history; submit the history again before asking the assistant to rerun the model. The trained Random Forest predicts aggregate emergency admissions for the month after the last input month. Historical inputs produce a retrospective forecast, not a forecast automatically anchored to today's date. The assistant's forecast tool calls this trained pipeline with saved inputs. It never creates synthetic",
+      "score": 0.672,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-3",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions \u00d7 average stay hours / target occupancy. Available bed-hours = staffed operational beds \u00d7 target-month days \u00d7 24. Required staff-hours = admissions \u00d7 staff-hours per admission. Extra beds are available for the entire target month. Calendar months have their actual number of days. The illustrative costs are \u00a3500 per extra bed-day and \u00a345 per extra staff-hour, not verified procurement prices. The simulation uses twenty seeded replications, starts empty, and simulates the forecast cohort. Occupancy is time-weighted. Wait statistics cover admissions that obtained a bed; end-of-month waiting counts are separate. Existing inpatients, elective activity, detailed ward routing, equipment and skill constraints are not modelled. A capacity preview uses present recorded inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context",
+      "score": 0.588,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-4",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context and are not optimiser constraints. Staff must mark unusable beds appropriately. Tasks are staff-owned follow-up records. Recommendations await administrator approval; approval records a decision but does not execute bed/staff allocation. The assistant has no approval or record-editing tools. ## Assistant and document evidence The assistant combines Groq generation, locally computed BGE-small embeddings, stored policy passages, semantic/keyword retrieval, and hospital-scoped backend tools. Only retrieved excerpts and selected record summaries are sent to Groq. Documents are shared across this installation. An uploaded document is not automatically an approved hospital policy. Answers should cite the actual retrieved passage IDs and hospital/tool evidence. When evidence is absent, say what is missing. Free-tier quotas may delay or prevent generation; no successful action should be claimed after a failed tool.",
+      "score": 0.575,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "F1",
+      "kind": "forecast",
+      "title": "Trained-model forecast preview",
+      "excerpt": "4411 admissions for 2026-08; saved input history 30dc3525-062d-427b-80f5-16a1ad91889a.",
+      "source": "trained Random Forest pipeline"
+    }
+  ],
+  "tools": [
+    {
+      "name": "run_forecast",
+      "status": "ok",
+      "arguments": {},
+      "result": {
+        "target_month": "2026-08",
+        "predicted_emergency_admissions": 4411,
+        "data": {
+          "source": "NHS England Monthly A&E Attendances and Emergency Admissions",
+          "history_start_month": "2025-07",
+          "history_end_month": "2026-07"
+        },
+        "warnings": [
+          "This hospital identifier was not part of the exported training categories. Complete local shadow validation before operational use."
+        ],
+        "saved": false,
+        "source_input_forecast_id": "30dc3525-062d-427b-80f5-16a1ad91889a",
+        "citation_id": "F1",
+        "as_of_date": "2026-11-09",
+        "historical_target": true
+      }
+    }
+  ],
+  "warnings": [],
+  "as_of_date": "2026-11-09"
+}

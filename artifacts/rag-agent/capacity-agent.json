@@ -1,0 +1,130 @@
+{
+  "conversation_id": "82d68272-8e3b-4228-aa5e-c9634e78b0ec",
+  "hospital_id": "DEMO-HOSP-01",
+  "status": "ok",
+  "answer": "**Capacity preview (forecast\u202f30dc3525\u2011062d\u2011427b\u201180f5\u201116a1ad91889a)**  \n- **Assumptions used:** average length of stay\u202f=\u202f20\u202fh, target occupancy\u202f=\u202f85\u202f%, staff\u2011hours per admission\u202f=\u202f4\u202fh (default values)\u202f[P1-3].  \n- **Historical context:** The forecast is for **August\u202f2026** and is marked **historical_target\u202f=\u202ftrue**, meaning the simulation is retrospective \u2013 it evaluates what would have been needed for that past month using the current recorded inventory[H1].  \n\n**Results (preview, not saved or approved) \u2013 source\u202f[C1]**  \n- **Extra beds required:**\u202f25\u202fbeds  \n- **Extra staff\u2011hours required:**\u202f2\u202f644\u202fhours  \n- **Estimated incremental cost:**\u202f\u00a3506\u202f480  \n  - Cost basis: \u00a3500 per extra bed\u2011day and \u00a345 per extra staff\u2011hour (policy\u2011defined illustrative rates)[P1-3].  \n\nThese figures represent the additional resources that would have been needed to meet the forecasted 4\u202f411 emergency admissions under the stated occupancy and staffing assumptions. No plan has been created or approved.",
+  "citations": [
+    {
+      "id": "H1",
+      "kind": "hospital",
+      "title": "City General Hospital: recorded hospital state",
+      "excerpt": "Beds, wards, emergency counts, saved forecasts and monthly resources.",
+      "updated_at": "2026-11-09T09:10:36.962866+00:00",
+      "source": "/operations/DEMO-HOSP-01/board"
+    },
+    {
+      "id": "P1-3",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions \u00d7 average stay hours / target occupancy. Available bed-hours = staffed operational beds \u00d7 target-month days \u00d7 24. Required staff-hours = admissions \u00d7 staff-hours per admission. Extra beds are available for the entire target month. Calendar months have their actual number of days. The illustrative costs are \u00a3500 per extra bed-day and \u00a345 per extra staff-hour, not verified procurement prices. The simulation uses twenty seeded replications, starts empty, and simulates the forecast cohort. Occupancy is time-weighted. Wait statistics cover admissions that obtained a bed; end-of-month waiting counts are separate. Existing inpatients, elective activity, detailed ward routing, equipment and skill constraints are not modelled. A capacity preview uses present recorded inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context",
+      "score": 0.752,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-2",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "aggregate emergency admissions for the month after the last input month. Historical inputs produce a retrospective forecast, not a forecast automatically anchored to today's date. The assistant's forecast tool calls this trained pipeline with saved inputs. It never creates synthetic monthly values to fill gaps. Tool results are unsaved previews and carry their source input forecast ID. The normal Demand forecast screen saves results for later planning. No retraining occurs. Future ward-level, hourly, discharge or length-of-stay predictions are not implemented. ## Capacity scenarios and assumptions Capacity planning uses a saved hospital forecast, current staffed/non-blocked bed inventory and monthly available staff hours for the forecast target month. The normal screen saves a plan for administrator review. The assistant's capacity tool returns a preview without saving a plan or allocating resources. Default assumptions: average stay 20 hours, target occupancy 85%, staff requirement four hours per admission, up to 100 extra beds and 10,000 extra staff-hours. Staff can request other values within validation limits. State assumptions in every scenario answer. Required bed-hours = admissions \u00d7 average stay hours / target occupancy. Available bed-hours",
+      "score": 0.739,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-1",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "beds immediately free. New beds are blocked and unstaffed until staff confirm their state. The assistant cannot change bed states. ## Emergency and priorities The emergency snapshot records counts awaiting assessment, awaiting a bed and staff-assessed high/medium/low priority counts. No patient-level records or automated triage model are connected. The assistant must not infer patient priority or recommend treatment. Operational task priorities routine/urgent are not patient triage categories. ## Forecast model and input history Demand forecast requires 13\u2013120 consecutive completed months: month, total_ae_attendances, emergency_admissions, attendances_under_4_hours, decision_to_admit_waits_over_4_hours. Current/future input months are rejected. Staff submit these through the Demand forecast screen or its CSV importer. New submissions now save the validated input history with their forecast. Legacy forecast records do not contain their original input history; submit the history again before asking the assistant to rerun the model. The trained Random Forest predicts aggregate emergency admissions for the month after the last input month. Historical inputs produce a retrospective forecast, not a forecast automatically anchored to today's date. The assistant's forecast tool calls this trained pipeline with saved inputs. It never creates synthetic",
+      "score": 0.622,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "P1-4",
+      "document_id": 1,
+      "title": "HealthFlow system reference (not clinical policy)",
+      "page": null,
+      "source": "HealthFlow repository, 9 November 2026",
+      "excerpt": "inventory even if the chosen forecast month is historical. ## Staffing, equipment, tasks and approvals Shift gaps are arithmetic differences between recorded required and available staffing. Partial shift records do not replace the monthly staff-hour budget. Equipment stocks are context and are not optimiser constraints. Staff must mark unusable beds appropriately. Tasks are staff-owned follow-up records. Recommendations await administrator approval; approval records a decision but does not execute bed/staff allocation. The assistant has no approval or record-editing tools. ## Assistant and document evidence The assistant combines Groq generation, locally computed BGE-small embeddings, stored policy passages, semantic/keyword retrieval, and hospital-scoped backend tools. Only retrieved excerpts and selected record summaries are sent to Groq. Documents are shared across this installation. An uploaded document is not automatically an approved hospital policy. Answers should cite the actual retrieved passage IDs and hospital/tool evidence. When evidence is absent, say what is missing. Free-tier quotas may delay or prevent generation; no successful action should be claimed after a failed tool.",
+      "score": 0.579,
+      "updated_at": "2026-11-09T09:03:11.517353",
+      "kind": "policy"
+    },
+    {
+      "id": "C1",
+      "kind": "scenario",
+      "title": "Capacity scenario preview",
+      "excerpt": "Existing simulator and optimiser; current recorded inventory; assumptions are included in tool result. No plan saved or approved.",
+      "source": "HealthFlow capacity service"
+    }
+  ],
+  "tools": [
+    {
+      "name": "preview_capacity",
+      "status": "ok",
+      "arguments": {
+        "forecast_id": "30dc3525-062d-427b-80f5-16a1ad91889a"
+      },
+      "result": {
+        "input_data": {
+          "forecast_id": "30dc3525-062d-427b-80f5-16a1ad91889a",
+          "average_length_of_stay_hours": 20,
+          "target_occupancy": 0.85,
+          "staff_hours_per_admission": 4,
+          "max_extra_beds": 100,
+          "max_extra_staff_hours": 10000,
+          "target_month": "2026-08",
+          "demand": 4411,
+          "staffed_beds": 115,
+          "resource_id": 1,
+          "resource_updated_at": "2026-11-08T15:38:03.772666",
+          "available_staff_hours": 15000.0,
+          "inventory_updated_at": "2026-11-09T08:27:58.307685",
+          "horizon_days": 31,
+          "cost_per_bed_day": 500,
+          "cost_per_staff_hour": 45,
+          "scope": "Aggregate scenario; current inventory, not historical occupancy or live patient allocation."
+        },
+        "recommendation": {
+          "status": "pending_approval",
+          "recommendation": {
+            "extra_beds": 25,
+            "extra_staff_hours": 2644,
+            "estimated_incremental_cost": 506480.0
+          },
+          "guardrail": "This plan is advisory and cannot be applied without human approval.",
+          "simulation": {
+            "mean_wait_hours": 10.621561607860027,
+            "p95_wait_hours": 23.873612183248664,
+            "mean_occupancy": 0.9680527226679366,
+            "waiting_at_end": 130.6,
+            "patients_started": 4268.75,
+            "replications": 20,
+            "seed": 42,
+            "monthly_to_hourly_rate": 5.928763440860215,
+            "capacity_risk": "high"
+          },
+          "summary": {
+            "required_beds_at_target": 140,
+            "bed_gap": 25,
+            "staff_hour_gap": 2644,
+            "offered_load_percent": 103.1
+          }
+        },
+        "saved": false,
+        "scope": "Preview only; no allocation or approval performed.",
+        "citation_id": "C1",
+        "historical_target": true,
+        "as_of_date": "2026-11-09"
+      }
+    }
+  ],
+  "warnings": [],
+  "as_of_date": "2026-11-09"
+}

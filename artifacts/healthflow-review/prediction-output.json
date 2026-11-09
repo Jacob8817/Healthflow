@@ -1,0 +1,56 @@
+{
+  "forecast_run_id": "191c1d63-585a-4490-b33d-1476017b0d3f",
+  "hospital": {
+    "identifier": "DEMO-HOSP-01",
+    "name": "City General Hospital (Test Data)"
+  },
+  "feature_month": "2026-07",
+  "target_month": "2026-08",
+  "raw_prediction": 4410.560852603583,
+  "predicted_emergency_admissions": 4411,
+  "forecast_interval": {
+    "lower_80": null,
+    "upper_80": null,
+    "lower_95": null,
+    "upper_95": null,
+    "method": null
+  },
+  "model": {
+    "name": "Random Forest Regressor",
+    "version": "c8d08873d644",
+    "primary_metric": "WAPE",
+    "validation_wape_percent": 4.749,
+    "test_wape_percent": 5.317
+  },
+  "data": {
+    "source": "NHS England Monthly A&E Attendances and Emergency Admissions",
+    "history_start_month": "2025-07",
+    "history_end_month": "2026-07"
+  },
+  "important_factors": [
+    {
+      "feature": "emergency_admissions_lag_1",
+      "importance_mean": 2571.828997986333
+    },
+    {
+      "feature": "provider_historical_median",
+      "importance_mean": 121.40691386869938
+    },
+    {
+      "feature": "provider_historical_mean",
+      "importance_mean": 54.05450015188104
+    },
+    {
+      "feature": "provider_code",
+      "importance_mean": 26.17516073534164
+    },
+    {
+      "feature": "decision_to_admit_waits_over_4_hours",
+      "importance_mean": 16.676459215506856
+    }
+  ],
+  "warnings": [
+    "This hospital identifier was not part of the exported training categories. Complete local shadow validation before operational use."
+  ],
+  "disclaimer": "Aggregate operational forecasting only; not for patient-level or clinical decisions."
+}

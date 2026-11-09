@@ -1,0 +1,11 @@
+.pytest_cache
+__pycache__
+*.pyc
+healthflow.db
+tests
+# Never bake backend secrets or local caches into images.
+.env
+.env.*
+!.env.example
+.rag_cache
+uploads

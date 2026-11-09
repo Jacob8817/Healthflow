@@ -1,0 +1,15 @@
+from prometheus_client import Counter, Histogram
+
+HTTP_REQUESTS = Counter("http_requests_total", "HTTP requests", ["method", "path", "status"])
+HTTP_DURATION = Histogram("http_request_duration_seconds", "HTTP request latency", ["path"])
+DATABASE_ERRORS = Counter("database_errors_total", "Database errors")
+FORECAST_REQUESTS = Counter("forecast_requests_total", "Forecast requests")
+FORECAST_DURATION = Histogram("forecast_duration_seconds", "Forecast latency")
+FORECAST_FAILURES = Counter("forecast_failures_total", "Forecast failures", ["reason"])
+MODEL_LOAD_FAILURES = Counter("model_load_failures_total", "Model load failures")
+SIMULATION_DURATION = Histogram("simulation_duration_seconds", "Simulation duration")
+OPTIMISATION_DURATION = Histogram("optimisation_duration_seconds", "Optimisation duration")
+OI_REQUESTS = Counter("operations_intelligence_requests_total", "Operations Intelligence requests")
+OI_TOOL_FAILURES = Counter("operations_intelligence_tool_failures_total", "OI tool failures")
+OLLAMA_DURATION = Histogram("ollama_request_duration_seconds", "Ollama request latency")
+OLLAMA_FAILURES = Counter("ollama_connection_failures_total", "Ollama failures")
